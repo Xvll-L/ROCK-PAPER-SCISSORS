@@ -13,6 +13,7 @@ main{
 
 .round{
     font-size: 24px;
+    grid-column: 3;
 }
 
 .container{
@@ -130,6 +131,11 @@ main{
     color: white;
     background-color: black;
 }
+
+.guide{
+    grid-row: 1;
+}
+
 
 
 
