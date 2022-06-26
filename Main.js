@@ -31,13 +31,13 @@ function computer(){
    let ai = Math.floor(Math.random() * 3) + 1;
     
     if (ai === 1) {
-        return "rock"
+        return "Rock"
     } else if (ai === 2){
-        return "paper"
+        return "Paper"
     } else if (ai === 3) {
-        return "scissors";
+        return "Scissors";
     } else {
-        return "failed";
+        return "Failed";
     }
 
 
@@ -51,15 +51,35 @@ paper.addEventListener("click", player)
 scissors.addEventListener("click", player)
 
 function player(e){
-    eventData = e.target.textContent
 
-    if (eventData === rock.innerHTML){
-        return "rock"
-    } else if (eventData === paper.innerHTML){
-        return "Paper"
-    } else if(eventData === scissors.innerHTML){
-        return "scissors"
-    } 
+       return e.target.textcontent
+}
 
+playerSelection = player
+
+function playRound(playerSelection, aiSelection){
+    let playerCount = 0;
+    let aiCount = 0;
+
+    if(playerSelection == "rock" && aiSelection == "Scissors" ){
+        playerCount++
+    } else if(playerSelection == "Scissors" && aiSelection == "rock"){
+        aiCount++
+    } else if(playerSelection == "Scissors" && aiSelection == "Paper"){
+        playerCount++
+    } else if(playerSelection == "Paper" && aiSelection == "Scissors"){
+        aiCount++
+    } else if(playerSelection == "Paper" && aiSelection == "rock" ){
+        playerCount++
+    } else{
+        aiCount++
+    }
+
+    displayPlayer.innerHTML = playerCount;
+    displayAi.innerHTML = aiCount
+    
+        
 
 }
+
+console.log(player === "Rock")
