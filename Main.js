@@ -52,10 +52,21 @@ scissors.addEventListener("click", player)
 
 function player(e){
 
-       return e.target.textcontent
+
+
+       if( e.target.textContent === rock.textContent){
+            return "Rock";
+       } else if(e.target.textContent === paper.textContent){
+            return "Paper";
+       } else if(e.target.textContent === scissors.textContent){
+            return "Scissors"
+       }
+      
 }
 
-playerSelection = player
+playerSelection = this.player(Event)
+
+console.log(playerSelection)
 
 function playRound(playerSelection, aiSelection){
     let playerCount = 0;
