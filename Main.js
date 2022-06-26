@@ -5,6 +5,7 @@ add event listenrs when the buttons rock, paper scissors are click and store the
 create a function to for score, loop and adder
 game function to keep score
 
+for ai try to get a random number and user if else stament for rock paper or scissors and return them ot function
 */
 
 //players
@@ -49,6 +50,8 @@ rock.addEventListener("click", player);
 paper.addEventListener("click", player)
 scissors.addEventListener("click", player)
 
-function player(){
+function player(e){
+    eventData = e.target.innerHTML
+    console.log(eventData)
 
 }
