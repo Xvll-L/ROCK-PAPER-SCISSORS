@@ -51,7 +51,15 @@ paper.addEventListener("click", player)
 scissors.addEventListener("click", player)
 
 function player(e){
-    eventData = e.target.innerHTML
-    console.log(eventData)
+    eventData = e.target.textContent
+
+    if (eventData === rock.innerHTML){
+        return "rock"
+    } else if (eventData === paper.innerHTML){
+        return "Paper"
+    } else if(eventData === scissors.innerHTML){
+        return "scissors"
+    } 
+
 
 }
