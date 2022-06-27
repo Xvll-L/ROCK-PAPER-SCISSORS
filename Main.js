@@ -52,17 +52,17 @@ console.log(aiSelection)
 
 function player(){
 
-    const promptData = prompt("Input rock paper or scissors");
+    let promptData = prompt("Input rock paper or scissors");
 
+    console.log(promptData, "data") 
 
-       if( promptData == "rock"){
-            return "Rock";
-       } else if( promptData == "paper"){
-            return "Paper";
-       } else if(promptData == "scissors"){
-            return "Scissors"
-       }
-
+    /*if (promptData === "rock" || promptData === "Rock") {
+        return "Rock"
+    } else if (promptData === "paper" || promptData === "Paper"){
+        return "Paper"
+    } else if (promptData === "scissors" || promptData === "Scissors") {
+        return "Scissors";
+    }*'/
     
     // dataEvent = e.target.textContent = `${dataEvent}`;
 
@@ -83,26 +83,49 @@ function player(){
 
 
 function playRound(playerSelection, aiSelection){
+   
+
+    if(playerSelection == "Rock" && aiSelection == "Scissors" ){
+        return "playerWin"
+    } else if(playerSelection == "Scissors" && aiSelection == "rock"){
+        return "aiWin"
+    } else if(playerSelection == "Scissors" && aiSelection == "Paper"){
+        return "playerWin"
+    } else if(playerSelection == "Paper" && aiSelection == "Scissors"){
+        return "aiWin"
+    } else if(playerSelection == "Paper" && aiSelection == "Rock" ){
+        return "playerWin"
+    } else if(playerSelection == "Rock" && aiSelection == "Paper" ){
+        return "aiWin"
+    }
+
+    
+    
+      
+
+}
+
+
+
+function game(){
     let playerCount = 0;
     let aiCount = 0;
 
-    if(playerSelection == "rock" && aiSelection == "Scissors" ){
-        playerCount++
-    } else if(playerSelection == "Scissors" && aiSelection == "rock"){
-        aiCount++
-    } else if(playerSelection == "Scissors" && aiSelection == "Paper"){
-        playerCount++
-    } else if(playerSelection == "Paper" && aiSelection == "Scissors"){
-        aiCount++
-    } else if(playerSelection == "Paper" && aiSelection == "rock" ){
-        playerCount++
-    } else{
-        aiCount++
-    }
+    for(let i = 0; i < 5;i++){
+        console.log(player())
 
+     playRound(player(),aiSelection)
+
+     if (playRound(player(),aiSelection) === "playerWin"){
+
+       playerCount = playerCount + 1;
+    } else{
+        aiCount = aiCount + 1;
+    }
     displayPlayer.innerHTML = playerCount;
     displayAi.innerHTML = aiCount
-    
-        
-
+    }
 }
+
+
+
