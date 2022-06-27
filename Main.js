@@ -54,21 +54,21 @@ function player(){
 
     let promptData = prompt("Input rock paper or scissors");
 
-    console.log(promptData, "data") 
+  
 
-    /*if (promptData === "rock" || promptData === "Rock") {
+    if (promptData === "rock" || promptData === "Rock") {
         return "Rock"
     } else if (promptData === "paper" || promptData === "Paper"){
         return "Paper"
     } else if (promptData === "scissors" || promptData === "Scissors") {
         return "Scissors";
-    }*'/
+    }
     
     // dataEvent = e.target.textContent = `${dataEvent}`;
 
     // return dataEvent
 
-    /*console.log(test)
+    /* console.log(test)
 
        if( e.target.textContent === rock.textContent){
             return "Rock";
@@ -76,27 +76,35 @@ function player(){
             return "Paper";
        } else if(e.target.textContent === scissors.textContent){
             return "Scissors"
-       }*/
+       } */
       
 }
 
+
+const Scissorsz = "Scissors"
 
 
 function playRound(playerSelection, aiSelection){
    
 
-    if(playerSelection == "Rock" && aiSelection == "Scissors" ){
+    if(playerSelection === "Rock" && aiSelection === "Scissors" ){
         return "playerWin"
-    } else if(playerSelection == "Scissors" && aiSelection == "rock"){
+    } else if(playerSelection === "Scissors" && aiSelection === "Rock"){
         return "aiWin"
-    } else if(playerSelection == "Scissors" && aiSelection == "Paper"){
+    } else if(playerSelection === "Scissors" && aiSelection === "Paper"){
         return "playerWin"
-    } else if(playerSelection == "Paper" && aiSelection == "Scissors"){
+    } else if(playerSelection === "Paper" && aiSelection === "Scissors"){
         return "aiWin"
-    } else if(playerSelection == "Paper" && aiSelection == "Rock" ){
+    } else if(playerSelection === "Paper" && aiSelection === "Rock" ){
         return "playerWin"
-    } else if(playerSelection == "Rock" && aiSelection == "Paper" ){
+    } else if(playerSelection === "Rock" && aiSelection === "Paper" ){
         return "aiWin"
+    } else if (playerSelection === "Rock" && aiSelection === "Rock"){
+        return "tie"
+    } else if (playerSelection === "Paper" && aiSelection === "Paper"){
+        return "tie"
+    } else if (playerSelection === "Scissors" && aiSelection === "Scissors"){
+        return "tie"
     }
 
     
@@ -104,6 +112,7 @@ function playRound(playerSelection, aiSelection){
       
 
 }
+
 
 
 
@@ -112,20 +121,24 @@ function game(){
     let aiCount = 0;
 
     for(let i = 0; i < 5;i++){
-        console.log(player())
+        console.log(i)
+        player()
+        computer()
 
-     playRound(player(),aiSelection)
+     playRound(player(),computer())
 
-     if (playRound(player(),aiSelection) === "playerWin"){
+     if (playRound(player(),computer()) === "playerWin"){
 
        playerCount = playerCount + 1;
-    } else{
+    } else if (playRound(player(),computer()) === "aiWin"){
         aiCount = aiCount + 1;
+    } else {
+        return;
     }
     displayPlayer.innerHTML = playerCount;
     displayAi.innerHTML = aiCount
     }
 }
 
-
+game()
 
