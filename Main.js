@@ -1,12 +1,4 @@
-/*
-First store the value for user inputs,score, round and display who is the winner
-gen a randon number for the player-ai
-add event listenrs when the buttons rock, paper scissors are click and store the data
-create a function to for score, loop and adder
-game function to keep score
 
-for ai try to get a random number and user if else stament for rock paper or scissors and return them ot function
-*/
 
 //players
 let playerSelection;
@@ -99,14 +91,9 @@ function playRound(playerSelection, aiSelection){
         return "playerWin"
     } else if(playerSelection === "Rock" && aiSelection === "Paper" ){
         return "aiWin"
-    } else if (playerSelection === "Rock" && aiSelection === "Rock"){
-        return "tie"
-    } else if (playerSelection === "Paper" && aiSelection === "Paper"){
-        return "tie"
-    } else if (playerSelection === "Scissors" && aiSelection === "Scissors"){
+    } else if (playerSelection ===   aiSelection){
         return "tie"
     }
-
     
     
       
