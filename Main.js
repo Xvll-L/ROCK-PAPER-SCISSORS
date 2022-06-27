@@ -46,13 +46,29 @@ aiSelection = computer();
 
 console.log(aiSelection)
 
-rock.addEventListener("click", player);
-paper.addEventListener("click", player)
-scissors.addEventListener("click", player)
+//rock.addEventListener("click", player);
+//paper.addEventListener("click", player)
+//scissors.addEventListener("click", player)
 
-function player(e){
+function player(){
+
+    const promptData = prompt("Input rock paper or scissors");
 
 
+       if( promptData == "rock"){
+            return "Rock";
+       } else if( promptData == "paper"){
+            return "Paper";
+       } else if(promptData == "scissors"){
+            return "Scissors"
+       }
+
+    
+    // dataEvent = e.target.textContent = `${dataEvent}`;
+
+    // return dataEvent
+
+    /*console.log(test)
 
        if( e.target.textContent === rock.textContent){
             return "Rock";
@@ -60,13 +76,11 @@ function player(e){
             return "Paper";
        } else if(e.target.textContent === scissors.textContent){
             return "Scissors"
-       }
+       }*/
       
 }
 
-playerSelection = this.player(Event)
 
-console.log(playerSelection)
 
 function playRound(playerSelection, aiSelection){
     let playerCount = 0;
@@ -92,5 +106,3 @@ function playRound(playerSelection, aiSelection){
         
 
 }
-
-console.log(player === "Rock")
