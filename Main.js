@@ -38,7 +38,7 @@ function computer(){
 } 
 aiSelection = computer();
 
-console.log(aiSelection)
+
 
 //rock.addEventListener("click", player);
 //paper.addEventListener("click", player)
@@ -80,7 +80,7 @@ console.log(aiSelection)
 
 function playRound(playerSelection, aiSelection){
    
-
+    console.log(aiSelection)
     if(playerSelection === "Rock" && aiSelection === "Scissors" ){
         return "playerWin"
     } else if(playerSelection === "Scissors" && aiSelection === "Rock"){
@@ -129,9 +129,9 @@ function game(){
        playerCount = playerCount + 1;
     } else if (results === "aiWin"){
         aiCount = aiCount + 1;
-    } else {
-        return;
-    }
+    } 
+
+
     displayPlayer.innerHTML = playerCount;
     displayAi.innerHTML = aiCount
 
@@ -140,6 +140,7 @@ function game(){
     }
     }
 }
+
 
 game()
 
