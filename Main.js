@@ -19,6 +19,8 @@ const rounds = document.querySelector("round-count")
 //display winner
 const displayWinner = document.querySelector(".win");
 
+let ai;
+
 function computer(){
    let ai = Math.floor(Math.random() * 3) + 1;
     
@@ -42,7 +44,7 @@ console.log(aiSelection)
 //paper.addEventListener("click", player)
 //scissors.addEventListener("click", player)
 
-function player(){
+/*function player(){
 
     let promptData = prompt("Input rock paper or scissors");
 
@@ -60,7 +62,7 @@ function player(){
 
     // return dataEvent
 
-    /* console.log(test)
+   console.log(test)
 
        if( e.target.textContent === rock.textContent){
             return "Rock";
@@ -68,12 +70,12 @@ function player(){
             return "Paper";
        } else if(e.target.textContent === scissors.textContent){
             return "Scissors"
-       } */
+       } 
       
-}
+}*/
 
 
-const Scissorsz = "Scissors"
+
 
 
 function playRound(playerSelection, aiSelection){
@@ -102,28 +104,40 @@ function playRound(playerSelection, aiSelection){
 
 
 
-
+let i = 0;
 function game(){
     let playerCount = 0;
     let aiCount = 0;
 
-    for(let i = 0; i < 5;i++){
-        console.log(i)
-        player()
-        computer()
+    while(true){
+        console.log(i = i + 1)
+       
+    let promptData = prompt("Input rock paper or scissors");
 
-     playRound(player(),computer())
+    if (promptData === "rock" || promptData === "Rock") {
+        promptData = "Rock";
+    } else if (promptData === "paper" || promptData === "Paper"){
+        promptData = "Paper";
+    } else if (promptData === "scissors" || promptData === "Scissors") {
+        promptData = "Scissors";
+    }
 
-     if (playRound(player(),computer()) === "playerWin"){
+     let results = playRound(promptData,computer())
+
+     if (results === "playerWin"){
 
        playerCount = playerCount + 1;
-    } else if (playRound(player(),computer()) === "aiWin"){
+    } else if (results === "aiWin"){
         aiCount = aiCount + 1;
     } else {
         return;
     }
     displayPlayer.innerHTML = playerCount;
     displayAi.innerHTML = aiCount
+
+    if (playerCount == 5 || aiCount == 5){
+        break
+    }
     }
 }
 
