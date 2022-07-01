@@ -40,29 +40,17 @@ aiSelection = computer();
 
 
 
-//rock.addEventListener("click", player);
-//paper.addEventListener("click", player)
-//scissors.addEventListener("click", player)
+rock.addEventListener("click", player);
+paper.addEventListener("click", player)
+scissors.addEventListener("click", player)
 
-/*function player(){
+function player(e){
 
-    let promptData = prompt("Input rock paper or scissors");
+     dataEvent = e.target.textContent
 
-  
-
-    if (promptData === "rock" || promptData === "Rock") {
-        return "Rock"
-    } else if (promptData === "paper" || promptData === "Paper"){
-        return "Paper"
-    } else if (promptData === "scissors" || promptData === "Scissors") {
-        return "Scissors";
-    }
     
-    // dataEvent = e.target.textContent = `${dataEvent}`;
 
-    // return dataEvent
-
-   console.log(test)
+   
 
        if( e.target.textContent === rock.textContent){
             return "Rock";
@@ -72,10 +60,10 @@ aiSelection = computer();
             return "Scissors"
        } 
       
-}*/
+}
 
 
-
+console.log(player)
 
 
 function playRound(playerSelection, aiSelection){
@@ -109,10 +97,10 @@ function game(){
     let playerCount = 0;
     let aiCount = 0;
 
-    while(true){
+    while(i < 50){
         console.log(i = i + 1)
        
-    let promptData = prompt("Input rock paper or scissors");
+    /*let promptData = prompt("Input rock paper or scissors");
 
     if (promptData === "rock" || promptData === "Rock") {
         promptData = "Rock";
@@ -121,15 +109,15 @@ function game(){
     } else if (promptData === "scissors" || promptData === "Scissors") {
         promptData = "Scissors";
     }
-
-     let results = playRound(promptData,computer())
+ */
+     let results = playRound(player,computer())
 
      if (results === "playerWin"){
 
        playerCount = playerCount + 1;
     } else if (results === "aiWin"){
         aiCount = aiCount + 1;
-    } 
+    }
 
 
     displayPlayer.innerHTML = playerCount;
@@ -143,4 +131,3 @@ function game(){
 
 
 game()
-
