@@ -14,7 +14,7 @@ const displayPlayer = document.querySelector(".player-score");
 const displayAi = document.querySelector(".ai-score");
 
 //number of rounds
-const rounds = document.querySelector("round-count")
+const rounds = document.querySelector(".round-count")
 
 //display winner
 const displayWinner = document.querySelector(".win");
@@ -40,6 +40,8 @@ function computer(){
 
 
 
+
+
 rock.addEventListener("click", function(){playRound("Rock")});
 paper.addEventListener("click", function Paper(){playRound("Paper")})
 scissors.addEventListener("click", function Scissors(){playRound("Scissors") })
@@ -58,11 +60,11 @@ function player(){
 
 let playerCount = 0;
 let aiCount = 0;
-let  roundCounts = 1;
+let  roundCounts = 0;
 function playRound(playerSelection){
    aiSelection = computer();
    
-    console.log(playerSelection)
+    
     if(playerSelection === "Rock" && aiSelection === "Scissors" ){
         results = "playerWin"
     } else if(playerSelection === "Scissors" && aiSelection === "Rock"){
@@ -81,37 +83,49 @@ function playRound(playerSelection){
     
    
    
-    
-        
+    console.log(results)
+    console.log(aiSelection)
        
     
      
 
      if (results === "playerWin"){
-
+        test100 = "Player"
        playerCount = playerCount + 1;
+       roundCounts = roundCounts + 1 ;
     } else if (results === "aiWin"){
+        test100 = "pc"
         aiCount = aiCount + 1;
-    } else 
+        roundCounts = roundCounts + 1;
+    } else if(results === "tie"){
+        roundCounts = roundCounts + 1;
+        test100 = "tie"
+    }
 
 
-    displayPlayer.innerHTML = playerCount;
-    displayAi.innerHTML = aiCount
+    displayPlayer.textContent = playerCount;
+    displayAi.textContent = aiCount
+    rounds.textContent = roundCounts;
 
-    if (playerCount === 5 || aiCount === 5){
-        
+    if (playerCount === 5 ){
+         
         playerCount = 0
         aiCount = 0
-       
+        roundCounts = 0
+          alert("player wins")
+    } else if(aiCount == 5){
       
-        playerMore = prompt("Do you want to player again? Type in yes")
-      
+      playerCount = 0
+        aiCount = 0
+        roundCounts = 0 
+        alert("computer wins")
     }
-    
+
+   
 
 }
 
-
+console.log(rounds)
 
 function game(){
    
